@@ -39,11 +39,11 @@ public:
 
     ~zi_de_nastere();
     
-    int zi_nastere;
+    
+private:
+int zi_nastere;
 Luni luna_nastere; 
 int an_nastere;
-private:
-
 
 };
 
