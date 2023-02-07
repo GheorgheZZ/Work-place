@@ -1,6 +1,8 @@
 #include <iostream>
+#include "scene.h"
 int main(int argc, char const *argv[])
 {
-    std::cout<< "Hello World!" << std::endl;
+  scene n1;
+    n1.PlayScene();
     return 0;
 }
