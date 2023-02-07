@@ -13,7 +13,7 @@ scene::~scene()
 
 void scene::PlayButon()
 {
-       // std::system("start D:\\Work_place\\D++\\src\\Main_Menu.wav");
+    //   std::system("start D:\\Work_place\\D++\\src\\Main_Menu.wav");
         std::cout << "\033[2J\033[1;1H";//
         std::cout << "Do you want to play?" << std::endl;
         std::cout << "Enter 1 for Yes or 0 for No: ";
