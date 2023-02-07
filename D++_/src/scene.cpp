@@ -24,7 +24,6 @@ void scene::PlayButon()
         
         std::cout << "\033[2J\033[1;1H";//
         //escape sequences ANSI pentru a curăța terminalul
-        //system() poate fi periculoasă, deoarece permite executarea oricărui comandă din sistemul de operare.
         std::cout << "Enter plyer name " <<std::endl;
         std::cin >> Name;
         std::cout << "\033[2J\033[1;1H";//
@@ -37,8 +36,6 @@ void scene::PlayButon()
                 {
                 std::cout << "\033[2J\033[1;1H";//
                 std::cout << "You name "<<Name<<" Class "<<Wizard<< std::endl; 
-                   
-              
                 }
                 if(Character_Class == 2)
                 {

@@ -2,6 +2,7 @@
 #define SCENE_H
 #include <string>
 #include<iostream>
+#include "Player.h"
 #include <cstdlib>
 #pragma once
 
@@ -14,7 +15,8 @@ public:
     {
         PlayButon();
     }
-    std::string getName()  {return Name;}
+    
+     std::string getName() {return Name;}
     int getCharacter_Class()  {return Character_Class;}
     std::string getWizard () {return Wizard;}
     std::string getWarior () {return Warior;}
