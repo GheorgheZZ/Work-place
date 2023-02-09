@@ -9,33 +9,32 @@
 class Player
 {
 public:
-    Player(std::string name, int health, int damage):
+enum PlayerType
+{
+  warrior,
+  wizard,
+  rogue
+};
+  PlayerType type;
+    Player(std::string name, int health, int damage, int defence):
     Name(name),
     health(health),
-    damage(damage) {}
+    damage(damage),
+    defence(defence)
+    {}
 
   std::string getName() {return Name;}
   int getHealth() {return health;}
   int getDamage() {return damage;}
-
+  int getdefence() {return defence;}
     ~Player();
-//void CheckInventory();
-///virtual void Attack(Player &enemy)
-//{
- // enemy.health -= damage;// va fi nevoie de redenumit health pentru enemy
- // std::cout << Name << " attacked " << enemy.Name << " for " << damage << " damage." << std::endl;
- // std::cout << enemy.Name << " now has " << enemy.health << " health." << std::endl;
-   
-//};
-//void CheckInventory();
-//std::string PlayerName;
-//int health;
-//int damage;
+
 private:
-//std::string Inventory;
+
 std::string Name;
 int health;
 int damage;
+int defence;
 
 };
 
