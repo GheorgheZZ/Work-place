@@ -15,7 +15,7 @@ public:
     Inventory();
     ~Inventory();
     
-//void addItem(Item item);
+void addItem(Item item);
    
 void removeItem(std::string name);
 
@@ -23,7 +23,7 @@ void printInventory() const;
 
 private:
 
-//std::vector<Item> items;
+std::vector<Item> items;
 
 };
 

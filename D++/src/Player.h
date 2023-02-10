@@ -3,18 +3,17 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include"scene.h"
 #pragma once
-
-class Player
-{
-public:
 enum PlayerType
 {
   warrior,
   wizard,
   rogue
 };
+class Player
+{
+public:
+
   PlayerType type;
     Player(std::string name, int health, int damage, int defence):
     Name(name),

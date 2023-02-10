@@ -1,5 +1,5 @@
-#include "Teme.h"
-//#include <iostream> 
+
+#include <iostream> 
 
 void TPA_1()
 {

@@ -3,9 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Player.h"
-#include "Game.h"
-#include "Inventory.h"
+
 #pragma once
 
 class Item

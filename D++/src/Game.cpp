@@ -11,18 +11,18 @@ Game::~Game()
 }
 void CreateChestItems(Player* p) {
   switch (p->type) {
-    case Player::warrior:
+    case warrior:
       {
-      //Inventory war;
-      //war.addItem(Item("Sword",1));
-      //war.printInventory();
+      Inventory war;
+      war.addItem(Item("Sword",1));
+      war.printInventory();
     
       }
       break;
-    case Player::wizard:
+    case wizard:
       // create items 
       break;
-    case Player::rogue:
+    case rogue:
       // create items 
       break;
   }
