@@ -1,40 +1,24 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
-#include <vector>
 #include <string>
 #pragma once
-enum PlayerType
-{
-  warrior,
-  wizard,
-  rogue
-};
+
 class Player
 {
 public:
-
-  PlayerType type;
-    Player(std::string name, int health, int damage, int defence):
-    Name(name),
-    health(health),
-    damage(damage),
-    defence(defence)
-    {}
-
-  std::string getName() {return Name;}
-  int getHealth() {return health;}
-  int getDamage() {return damage;}
-  int getdefence() {return defence;}
-    ~Player();
+ Player() : name("Player"), damage(5), health(50), defence(1) {}
+    std::string getName() {return name;}
+    int getDamage() {return damage;}
+    int getHealth() {return health;}
+    int getDefence() {return defence;}
 
 private:
 
-std::string Name;
-int health;
-int damage;
-int defence;
-
+    std::string name;
+    int damage;
+    int health;
+    int defence;
 };
 
 #endif

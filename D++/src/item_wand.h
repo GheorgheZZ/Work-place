@@ -1,27 +1,26 @@
-#ifndef WARRIOR_H
-#define WARRIOR_H
+#ifndef ITEM_WAND_H
+#define ITEM_WAND_H
 #include <iostream>
 #include <string>
 #pragma once
-class Warrior 
 
+class item_wand
 {
 public:
+    
 
- Warrior() : name("Warrior"), damage(3), health(20), defence(3) {}
+ item_wand() : name("wand"), damage(6), health(5), defence(0) {}
     std::string getName() {return name;}
     int getDamage() {return damage;}
     int getHealth() {return health;}
     int getDefence() {return defence;}
-    
-    
+
 private:
-std::string name;
+
+    std::string name;
     int damage;
     int health;
     int defence;
-
-
 };
 
 #endif

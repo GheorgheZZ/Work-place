@@ -1,14 +1,14 @@
-#ifndef WARRIOR_H
-#define WARRIOR_H
+#ifndef WIZARD_H
+#define WIZARD_H
 #include <iostream>
 #include <string>
 #pragma once
-class Warrior 
 
+class Wizard
 {
 public:
 
- Warrior() : name("Warrior"), damage(3), health(20), defence(3) {}
+ Wizard() : name("Wizard"), damage(7), health(5), defence(0) {}
     std::string getName() {return name;}
     int getDamage() {return damage;}
     int getHealth() {return health;}
@@ -20,8 +20,6 @@ std::string name;
     int damage;
     int health;
     int defence;
-
-
 };
 
 #endif

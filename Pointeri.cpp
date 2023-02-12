@@ -13,7 +13,7 @@ void foo_cu_pointer(int* param) // acesst param este variabila locala pentru fie
     {
   std::cout << param <<std::endl;
  std::cout << "Adresa lui param din foo este" << &param <<std::endl; // &param printeaza adresa lui param
-    else
+  
 }
 
 }
@@ -33,7 +33,7 @@ int main () {
     foo(param);  // copiere avantaj - protejezi de modificari exterioare, pinteri se afla in C referintele nu
     int* ptr=nullptr;// un pointer ce arata catre o adresa int, un pointer null arata ctre o adresa 0
     //ptr - &param;
-    foo_cu_pointer(&ptr);
+    //foo_cu_pointer(&ptr);
     // param = increment(param); workaraund
 
     increment(ptr);
