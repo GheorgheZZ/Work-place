@@ -7,7 +7,7 @@
 class Rogue
 {
 public:
- Rogue() : name("Rogue"), damage(5), health(10), defence(1) {}
+ Rogue() : name("Rogue"), damage(1), health(10), defence(1) {}
     std::string getName() {return name;}
     int getDamage() {return damage;}
     int getHealth() {return health;}

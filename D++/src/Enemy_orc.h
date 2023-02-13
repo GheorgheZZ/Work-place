@@ -13,9 +13,9 @@ class Enemy_orc : public Enemy {
   std::string getType() { return "Orc"; }
 
  private:
-  int health = 150;
-  int damage = 30;
-  int defence = 15;
+  int health = 72;
+  int damage = 9;
+  int defence = 0;
 };
 
 #endif

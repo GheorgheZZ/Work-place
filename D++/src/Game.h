@@ -9,7 +9,7 @@
 #include "item_dagger.h"
 #include "Enemy_goblin.h"
 #include "Enemy_orc.h"
-#include "Enemy_troll.h"
+#include "Enemy_skelet.h"
 #pragma once
 
 class Game 

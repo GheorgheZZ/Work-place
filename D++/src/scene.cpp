@@ -16,11 +16,15 @@ void scene::PlayButon()
   //"\033" este codul de scăpare pentru caractere ANSI
   //"2J" reprezintă comanda pentru a șterge conținutul ecranului
   //"1;1H" reprezintă comanda pentru a muta cursorul în poziția 1,1 (în partea de sus a stânga a ecranului).
-  std::cout<<" Once upon a time, there was a small kingdom surrounded by dark forests and towering mountains."<<std::endl; 
-  std::cout<<"The people lived in fear of the monsters that lurked in the shadows, terrorizing the countryside."<<std::endl; 
-  std::cout<<"The king had offered a reward to anyone who could defeat the creatures and bring peace to the kingdom."<<std::endl;
-  
-  while(true) 
+
+pik.logo();//tot ce contine pik. e afisarea imaginilor
+getch();
+std::cout << "\033[2J\033[1;1H";//
+std::cout << "\n\n\n\n\n\n\n\n\n\n " << std::endl;
+
+pik.kastle();
+  getch();
+  while(true) // Un loop pentru play buton
   {  
     std::cout << "Do you want to play?" << std::endl;
     std::cout << "Enter 1 for Yes or 2 for No: ";
@@ -33,8 +37,22 @@ void scene::PlayButon()
       std::cout << "Enter plyer name " <<std::endl;
       std::cin >> Name;
       std::cout << "\033[2J\033[1;1H";//
+
+
       while(true) 
-      {
+      { std::cout <<"You need to choose a class, here is a short description, press any key "<<std::endl;
+        getch();
+        std::cout << "\033[2J\033[1;1H";//
+        pik.wizard();
+        getch();
+        std::cout << "\033[2J\033[1;1H";//
+        pik.warrior();
+        getch();
+        std::cout << "\033[2J\033[1;1H";//
+        pik.rogue();
+        getch();
+        
+        std::cout << "\033[2J\033[1;1H";//
         std::cout << "\n Select your class" <<std::endl;
         std::cout << "Enter 1 for (Wizard)" <<std::endl;
         std::cout << "Enter 2 for (Warrior)" <<std::endl;
@@ -51,14 +69,14 @@ void scene::PlayButon()
         else if(Character_Class == 2)
         {
         std::cout << "\033[2J\033[1;1H";//
-        std::cout << "You name "<<Name<<" Class Warior"<< std::endl;
+        std::cout << "You name "<<Name<<" Class Warior"<< std::endl;                                                                                                                                                                    
         break;
         }
 
         else if(Character_Class == 3)
         {
         std::cout << "\033[2J\033[1;1H";//
-        std::cout << "You name "<<Name<<" Class Rogue"<< std::endl;
+        std::cout << "You name "<<Name<<" Class Rogue"<<std::endl;
         break;
         }
 
@@ -88,11 +106,12 @@ void scene::PlayButon()
     }
   }
 
- std::cout<<"To continu press any key " <<std::endl;
+ std::cout<<"To continue press any key " <<std::endl;
  getch();
  std::cout << "\033[2J\033[1;1H";//
 }
-
+//////////////////////////////////////////////////////////
+//                                      scena Crossroads
 void scene::crossroads()
 {
   music.openFromFile("Exploring.wav");
@@ -100,11 +119,7 @@ void scene::crossroads()
   music.play();
   music.setLoop(true);
   
-  std::cout<<"One day, a stranger arrived in town. He was tall with a mysterious air about him." << std::endl; 
-  std::cout<<"He claimed to be a hero, come to vanquish the monsters and restore peace to the kingdom." << std::endl; 
-  std::cout<<"The people were skeptical, but desperate for help, so they agreed to let him try." << std::endl;
-  std::cout<<" will try to fight the darkness..."<<std::endl;
-  std::cout<<"Press any key to continue "<<std::endl;
+  pik.road();
   getch();
   std::cout << "\033[2J\033[1;1H";//
   std:: cout <<Name<<" curent stats are :"<<std::endl;
@@ -113,7 +128,10 @@ void scene::crossroads()
   std::cout<<"Press any key to continue "<<std::endl;
   getch();
   std::cout << "\033[2J\033[1;1H";//
-  
+  pik.crossroad();
+  getch();
+  std::cout << "\033[2J\033[1;1H";//
+
   while(true) 
    {  
    std::cout<<"You have 3 roads, chose one "<<std::endl;
@@ -122,7 +140,7 @@ void scene::crossroads()
    std::cout << "Enter 3 for (Caves)" <<std::endl;
    Take_road(road);
 
-   if(road == 1)
+   if(road == 1) 
     {
     std::cout << "\033[2J\033[1;1H";//
     std::cout <<Name<<" chose Village road" <<std::endl; 
@@ -152,11 +170,15 @@ void scene::crossroads()
   }
 }
 
-
+/////////////////////////////////////////////////////////////////////////////
+//                                         Scena chest
 void scene::chest_scene()
 {
-  std::cout<<"You find a chest: "<<std::endl;
-  
+  std::cout << "\033[2J\033[1;1H";//
+  std::cout<<"You found a chest: "<<std::endl;
+  pik.chest();
+  getch();
+  std::cout << "\033[2J\033[1;1H";//
   while(true) 
   {  
    std::cout<<"Do you want to open it? "<<std::endl;
@@ -167,7 +189,7 @@ void scene::chest_scene()
    if(chest == 1)
     {
     std::cout << "\033[2J\033[1;1H";//
-    std::cout <<"You find an item : "<<std::endl;
+    std::cout <<"You found an item : "<<std::endl;
     Character_define();
     getch();
       while(true) 
@@ -176,7 +198,7 @@ void scene::chest_scene()
     std::cout <<"Do you want to pick up and equip item? "<<std::endl;
     std::cout << "Enter 1 for (Yes)" <<std::endl;
     std::cout << "Enter 2 for (No)" <<std::endl;
-    Take_open(open);//////////////////////////////////////////////////
+    Take_open(open);// salvez daca a fost echipat item ori nu
 
     if(open == 1)
       {
@@ -230,47 +252,15 @@ void scene::chest_scene()
     std::cout<<"You must choose between 1,2 press any key to return to choose menu"<<std::endl;
     getch();
     std::cout << "\033[2J\033[1;1H";//
-    }
+   }
   }
 }
 
-void scene::battle_scene()
-{
-  music.openFromFile("BattleFinal.wav");
-  music.setVolume(70);
-  music.play();
-  music.setLoop(true);
-  getch();
-    while(true) 
-    { 
-      
 
-      if(open == 1)
-      {
-      std::cout << "\033[2J\033[1;1H";//
-    
-      break;
-      }
-
-      else if(open == 2)
-      {
-      std::cout << "\033[2J\033[1;1H";//
-     
-      break;
-      }
-
-      else 
-      {
-      std::cout<<"You must choose between 1,2 press any key to return to choose menu"<<std::endl;
-      getch();
-      std::cout << "\033[2J\033[1;1H";//
-      }
-    }
-}
 
 void scene::displaySwordParameters()
 {
-  item_sword sword;
+  
   item_sword* swordPointer = &sword;
         std::cout << "Name: " << swordPointer->getName() << std::endl;
         std::cout << "Damage: " << swordPointer->getDamage() << std::endl;
@@ -279,12 +269,12 @@ void scene::displaySwordParameters()
 }
 void scene::displayFinal_warrior()
 {
-    Game game;
+    
         game.Final_warrior();
 }
 void scene::display_warrior_sword()
 {
-  Game game;
+  
   game.Final_warrior_sword();
 }
 
@@ -306,7 +296,7 @@ void scene::Take_class(int& Character_Class)// pentru a salva valoarea Character
     }
 void scene::dissplayWandParameters()
 {
-  item_wand wand;
+  
   item_wand* wandPointer = &wand;
         std::cout << "Name: " << wandPointer->getName() << std::endl;
         std::cout << "Damage: " << wandPointer->getDamage() << std::endl;
@@ -315,17 +305,15 @@ void scene::dissplayWandParameters()
 }
 void scene::displayFinal_Wizard()
 {
-    Game game;
         game.Final_wizard();  
 }
 void scene::display_wizard_wand()
 {
-  Game game;
   game.Final_wizard_wand();  
 }
 void scene::displayDaggerParameters()
 {
-  item_dagger dagger;
+  
   item_dagger* daggerPointer = &dagger;
         std::cout << "Name: " << daggerPointer->getName() << std::endl;
         std::cout << "Damage: " << daggerPointer->getDamage() << std::endl;
@@ -334,39 +322,40 @@ void scene::displayDaggerParameters()
 }
 void scene::displayFinal_Rogue()
 {
-    Game game;
         game.Final_Rogue();    
 }
 void scene::display_rogue_dagger()
 {
-  Game game;
   game.Final_Rogue_dagger();  
 }
 
 
 
-void scene::Character_define()
+void scene::Character_define() //in functie de clasa in chest apare item pentru clasa lui
 {
  if(Character_Class == 1)
   {
+  pik.vand();
   dissplayWandParameters();
    
   }
 
   else if(Character_Class == 2)
   {
+  pik.sword();
   displaySwordParameters();
   
   }
 
   else if(Character_Class == 3)
   {
+    pik.dagger();
   displayDaggerParameters();
   
   }
 }
 
-void scene::Character_define_Item_stat()
+void scene::Character_define_Item_stat()  // afiseaza parametri la jucator cu parametri la item
 {
   {
     if(Character_Class == 1)
@@ -389,7 +378,7 @@ void scene::Character_define_Item_stat()
   }
 }
 
-void scene::Character_stat()
+void scene::Character_stat()  // afiseaza parametri claselor fara item
 {
  if(Character_Class == 1)
   {
@@ -410,17 +399,18 @@ void scene::Character_stat()
   }
 }
 
-
-
 void scene::BattleScene()
-{  
+{  music.openFromFile("BattleFinal.wav");
+  music.setVolume(70);
+  music.play();
+  music.setLoop(true);
     scene Scene;
-
+    getch();
     if(Character_Class == 1)
-  {//wizard
+ {//wizard
       if(chest == 1 && open ==1)
-      {//wizard + wand
-        Game game;
+      {//wizard + wand parametri
+        
         game.PlayerAddWizard_wand();
          heroHealth =game.geTotaltHealth();
          heroDamage =game.getTotalDamage();
@@ -428,8 +418,8 @@ void scene::BattleScene()
         
       }
       else 
-      { // wizard
-        Game game;
+      { // wizard parametri
+        
         game.PlayerAddWizard();
          heroHealth =game.geTotaltHealth();
          heroDamage =game.getTotalDamage();
@@ -443,7 +433,7 @@ void scene::BattleScene()
    {//warrior
       if(chest == 1 && open ==1)
       {//warrior + sword
-        Game game;
+        
         game.PlayerAddWarrior_sword();
          heroHealth =game.geTotaltHealth();
          heroDamage =game.getTotalDamage();
@@ -451,7 +441,7 @@ void scene::BattleScene()
       }
       else 
       { // warrior
-         Game game;
+         
         game.PlayerAddWarrior();
          heroHealth =game.geTotaltHealth();
          heroDamage =game.getTotalDamage();
@@ -464,7 +454,7 @@ void scene::BattleScene()
    {//rogue 
       if(chest == 1 && open ==1)
       {//rogue + dagger
-         Game game;
+         
         game.PlayerAddRogue_dagger();
          heroHealth =game.geTotaltHealth();
          heroDamage =game.getTotalDamage();
@@ -472,7 +462,7 @@ void scene::BattleScene()
       }
       else 
       { // rogue
-         Game game;
+         
         game.PlayerAddRogue();
          heroHealth =game.geTotaltHealth();
          heroDamage =game.getTotalDamage();
@@ -482,42 +472,67 @@ void scene::BattleScene()
   }
    
     std::random_device rd;
-  std::mt19937 eng(rd());
-  std::uniform_int_distribution<> distr(0, 2);
+  std::mt19937 eng(rd()); //generator de numere pseudo-aleatoare, 
+  //rd() returneaza un seed generat din surse externe, cum ar fi timpul de sistem sau performanta hard disk-ului
+  std::uniform_int_distribution<> distr(0, 2); //generam numere intregi intre 0 si 2 adica 3 variante
 
     Enemy* enemy;
-  switch (distr(eng)) {
-    case 0:
-      enemy = new Enemy_goblin();
-      break;
-    case 1:
-      enemy = new Enemy_orc();
-      break;
-    case 2:
-      enemy = new Enemy_troll();
-      break;
-  }
+  switch (distr(eng))// random intre 0 si 3
+   {
+      case 0:
+        enemy = new Enemy_goblin();
+        pik.goblin();
+        break;
+      case 1:
+        enemy = new Enemy_orc();
+        pik.orc();
+        break;
+      case 2:
+        enemy = new Enemy_skelet();
+        pik.skelet();
+        break;
+    }
 
-  int enemyHealth = enemy->getHealth();
+  int enemyHealth = enemy->getHealth(); //in functie de care Enemy a nimerit luam parametrii lui
   int enemyDamage = enemy->getDamage();
   int enemyDefence = enemy->getDefence();
 
-  while (heroHealth > 0 && enemyHealth > 0) {
-    enemyHealth = enemyHealth - (heroDamage - enemyDefence);
+  while (heroHealth > 0 && enemyHealth > 0) //un loop pentru battle ca sa luam jucatori si Enemy vii :D
+  {
+    enemyHealth = enemyHealth - (heroDamage - enemyDefence); // aici jucatorul paleste Enemy si pur si simplu scadem damage din defence
     std::cout << "Hero attacked " << enemy->getType() << "! Enemy health is now "<< enemyHealth << std::endl;
     getch();
-    if (enemyHealth <= 0) {
+
+    if (enemyHealth <= 0) // daca Enemy HP ajunge la 0 oprim loop
+    {
       break;
     }
-    heroHealth = heroHealth - (enemyDamage - heroDefence);
-    std::cout << enemy->getType() << " attacked hero! Hero health is now "<< heroHealth << std::endl;
+    heroHealth = heroHealth - (enemyDamage - heroDefence);// aici HP eroului se scade din Enemy damage
+    std::cout <<"                                                  "<< enemy->getType() << " attacked hero! Hero health is now "<< heroHealth << std::endl;
     getch();
   }
-  if (heroHealth <= 0) {
+  if (heroHealth <= 0)  // daca eroul moare game over
+  {
     std::cout << "Hero has been defeated" << std::endl;
+    std::cout << "\033[2J\033[1;1H";//
+    pik.gameover();
     getch();
+    delete enemy; //stergem Enemy din Heap
   } else {
-    std::cout << "Hero has defeated the " << enemy->getType() << "!" << std::endl;
+    std::cout << "Hero has defeated the " << enemy->getType() << "!" << std::endl; // eroul castiga
+    getch();
+    std::cout << "\033[2J\033[1;1H";//
+    std::cout<< "You continued the journey "<<std::endl;
+    getch();
+    std::cout << "\033[2J\033[1;1H";//
+    music.stop();// oprim muzica precedenta
+    music.openFromFile("arrive.wav"); // si pornim noul soundtrack pentru cei care au ajuns :D
+    music.setVolume(70);
+    music.play();
+    music.setLoop(true);
+    std::cout<< "You arrived "<<std::endl;
+    pik.arrive();
+    delete enemy; //stergem Enemy din Heap
     getch();
   }
  

@@ -9,7 +9,7 @@ class item_wand
 public:
     
 
- item_wand() : name("wand"), damage(6), health(5), defence(0) {}
+ item_wand() : name("wand"), damage(12), health(5), defence(0) {}
     std::string getName() {return name;}
     int getDamage() {return damage;}
     int getHealth() {return health;}

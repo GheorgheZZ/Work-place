@@ -7,7 +7,8 @@
 #include <SFML/Audio.hpp>
 #include "Game.h"
 #include <random>
-
+#include "Draws.h"
+#include <conio.h>
 #pragma once
 
 class scene
@@ -24,40 +25,44 @@ public:
 
         chest_scene(); // scena chest
 
-        battle_scene(); // scena Battle
-        BattleScene();
+                         
+        BattleScene();// scena Battle 
     }
     
    
    
-    std::string getName() {return Name;}
-    int getCharacter_Class()  {return Character_Class;}
+  //  std::string getName() {return Name;}
+  //  int getCharacter_Class()  {return Character_Class;}
 
 
-    void Take_class(int& Character_Class);// pentru a salva valoarea Character_class
-  
-    void Take_road(int& road);
+    
 
-    void Take_chest(int& chest);
-    void Take_open(int& open);
+private:
 
-    void Character_define();
+
+    void Take_class(int& Character_Class);// pentru a salva valoarea Character_class 
+    void Take_road(int& road);   // salvam alegerea drum ales
+    void Take_chest(int& chest); // salvam alegerea chest
+    void Take_open(int& open);   // salvam daca a fost ridicat sau nu itemul
+
+
+    void Character_define();   // afiseaza staturile jucatorului
     void Character_define_Item_stat();
     void Character_stat();
 
-private:
-    int heroHealth;
-
+    int heroHealth;  // salveaza staturile din if-uri
     int heroDamage;
     int heroDefence;
 
-void BattleScene();
+
    
 
-sf::Music music,music2; // aici cream obiectele music
-void displaySwordParameters();
-void displayFinal_warrior();
-void display_warrior_sword();
+sf::Music music; // obiectul music
+
+// Parametri Claselor(Damage,Health,Defence)
+void displaySwordParameters();// parametri itemului sword
+void displayFinal_warrior(); // parametri warrior
+void display_warrior_sword();// parametri warrior + sword acelasi lucru pentru celelalte clase
 
 void dissplayWandParameters();
 void displayFinal_Wizard();
@@ -72,15 +77,18 @@ void display_rogue_dagger();
 void PlayButon();
 void crossroads();
 void chest_scene();
-void battle_scene();
+void BattleScene();
+
 std::string Name;
 int Character_Class;
 int road;
 int chest;
 int open;
-
-
-
+Game game;
+Draws pik;
+item_sword sword;
+item_wand wand;
+item_dagger dagger;
 };
 
 #endif

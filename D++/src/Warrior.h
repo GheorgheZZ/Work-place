@@ -8,7 +8,7 @@ class Warrior
 {
 public:
 
- Warrior() : name("Warrior"), damage(3), health(20), defence(3) {}
+ Warrior() : name("Warrior"), damage(2), health(10), defence(2) {}
     std::string getName() {return name;}
     int getDamage() {return damage;}
     int getHealth() {return health;}

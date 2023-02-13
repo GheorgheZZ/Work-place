@@ -5,7 +5,10 @@ Game::Game()
 
 }
 Game::~Game()
-{   }
+{   } // Aici ideea consta in adunarea parametrilor Player cu unul din cele 3 clase, 
+      // asta permite balansa clasele intre atribute Damage, Health, Defence
+      // si in acelasi timp a balansa mai simplu cu Enemy
+
 //                                              WARIOR                                                                                   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                       //
@@ -30,6 +33,7 @@ void Game::PlayerAddWarrior_sword() //        Player  + Warrior + Sword stats   
                                                                                                       //
 void Game::Final_warrior()//                 save parametri                                           //
  //  am avut nevoie sa salvez parametri din void totalHealth si restu parametrilor                    //
+ //  pentru a le putea afisa in unele scene care necesita sa se vada parametri                        //
 {                                                                                                     //
       Game game;                                                                                      //
       game.PlayerAddWarrior();                                                                        //
@@ -49,85 +53,88 @@ std::cout << "Total Damage: " << game.getTotalDamage() << std::endl;            
 std::cout << "Total Defence: " << game.geTotaltDefence() << std::endl;                                //
 }                                                                                                     //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-void Game::PlayerAddWizard()
-{
-Wizard* WizzPointer = &wizard;                                                                  //
+
+//                                           WIZARD
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+void Game::PlayerAddWizard()                                                                          //
+{                                                                                                     //
+Wizard* WizzPointer = &wizard;                                                                        //
     Player* PlayerPoint = &player;                                                                    //                                                                                
    totalHealth = WizzPointer->getHealth() + PlayerPoint->getHealth();                                 //
    totalDamage = WizzPointer->getDamage() + PlayerPoint->getDamage();                                 //
-   totalDefence = WizzPointer->getDefence() + PlayerPoint->getDefence();         
-}
-void Game::PlayerAddWizard_wand()
-{
-    Wizard* WizzPointer = &wizard;                                                                  //
+   totalDefence = WizzPointer->getDefence() + PlayerPoint->getDefence();                              //
+}                                                                                                     //
+                                                                                                      //
+void Game::PlayerAddWizard_wand()                                                                     //
+{                                                                                                     //
+    Wizard* WizzPointer = &wizard;                                                                    //
     Player* PlayerPoint = &player;                                                                    //
-   item_wand* WandPoint = &wand;                                                                   //  
-   totalHealth = WizzPointer->getHealth() + PlayerPoint->getHealth()+WandPoint->getHealth();                                 //   
-   totalDamage = WizzPointer->getDamage() + PlayerPoint->getDamage()+WandPoint->getDamage();         //
-   totalDefence = WizzPointer->getDefence() + PlayerPoint->getDefence();       
-}
-void Game::Final_wizard()
-{
+   item_wand* WandPoint = &wand;                                                                      //  
+   totalHealth = WizzPointer->getHealth() + PlayerPoint->getHealth()+WandPoint->getHealth();          //   
+   totalDamage = WizzPointer->getDamage() + PlayerPoint->getDamage()+WandPoint->getDamage();          //
+   totalDefence = WizzPointer->getDefence() + PlayerPoint->getDefence();                              //
+}                                                                                                     //
+                                                                                                      //
+void Game::Final_wizard()                                                                             //
+{                                                                                                     //
       Game game;                                                                                      //
-      game.PlayerAddWizard();                                                                        //
-      std::cout <<"  Wizard stats"<<std::endl;                                                       //
+      game.PlayerAddWizard();                                                                         //
+      std::cout <<"  Wizard stats"<<std::endl;                                                        //
 std::cout << "Total Health: " << game.geTotaltHealth() << std::endl;                                  //
 std::cout << "Total Damage: " << game.getTotalDamage() << std::endl;                                  //
-std::cout << "Total Defence: " << game.geTotaltDefence() << std::endl;      
-}
-void Game::Final_wizard_wand()
-{
+std::cout << "Total Defence: " << game.geTotaltDefence() << std::endl;                                //
+}                                                                                                     //
+                                                                                                      //
+void Game::Final_wizard_wand()                                                                        //
+{                                                                                                     //
       Game game;                                                                                      //
-      game.PlayerAddWizard_wand();                                                                  //
+      game.PlayerAddWizard_wand();                                                                    //
       std::cout <<"  Wizzard stats"<<std::endl;                                                       //
 std::cout << "Total Health: " << game.geTotaltHealth() << std::endl;                                  //
 std::cout << "Total Damage: " << game.getTotalDamage() << std::endl;                                  //
-std::cout << "Total Defence: " << game.geTotaltDefence() << std::endl;       
-}
+std::cout << "Total Defence: " << game.geTotaltDefence() << std::endl;                                //
+}                                                                                                     //
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
+//                                        ROGUE
 void Game::PlayerAddRogue()
 {
-Rogue* RoguePointer = &rogue;                                                                  //
-    Player* PlayerPoint = &player;                                                                    //                                                                                
-   totalHealth = RoguePointer->getHealth() + PlayerPoint->getHealth();                                 //
-   totalDamage = RoguePointer->getDamage() + PlayerPoint->getDamage();                                 //
+Rogue* RoguePointer = &rogue;                                                                  
+    Player* PlayerPoint = &player;                                                                                                                                                    
+   totalHealth = RoguePointer->getHealth() + PlayerPoint->getHealth();                                 
+   totalDamage = RoguePointer->getDamage() + PlayerPoint->getDamage();                                 
    totalDefence = RoguePointer->getDefence() + PlayerPoint->getDefence();      
 }
 
 void Game::PlayerAddRogue_dagger()
 {
- Rogue* RoguePointer = &rogue;                                                                  //
-    Player* PlayerPoint = &player;                                                                    //
-   item_dagger* DaggerPoint = &dagger;                                                                   //  
-   totalHealth = RoguePointer->getHealth() + PlayerPoint->getHealth();                                 //   
-   totalDamage = RoguePointer->getDamage() + PlayerPoint->getDamage()+DaggerPoint->getDamage();         //
+ Rogue* RoguePointer = &rogue;                                                                  
+    Player* PlayerPoint = &player;                                                                    
+   item_dagger* DaggerPoint = &dagger;                                                                     
+   totalHealth = RoguePointer->getHealth() + PlayerPoint->getHealth();                                   
+   totalDamage = RoguePointer->getDamage() + PlayerPoint->getDamage()+DaggerPoint->getDamage();         
    totalDefence = RoguePointer->getDefence() + PlayerPoint->getDefence()+DaggerPoint->getDefence();        
 }
 
 void Game::Final_Rogue()
 {
-      Game game;                                                                                      //
-      game.PlayerAddRogue();                                                                       //
-      std::cout <<"  Rogue stats"<<std::endl;                                                       //
-std::cout << "Total Health: " << game.geTotaltHealth() << std::endl;                                  //
-std::cout << "Total Damage: " << game.getTotalDamage() << std::endl;                                  //
+      Game game;                                                                                      
+      game.PlayerAddRogue();                                                                      
+      std::cout <<"  Rogue stats"<<std::endl;                                                       
+std::cout << "Total Health: " << game.geTotaltHealth() << std::endl;                                  
+std::cout << "Total Damage: " << game.getTotalDamage() << std::endl;                                  
 std::cout << "Total Defence: " << game.geTotaltDefence() << std::endl;       
 }
 
 void Game::Final_Rogue_dagger()
 {
-      Game game;                                                                                      //
-      game.PlayerAddRogue_dagger();                                                                  //
-      std::cout <<"  Wizzard stats"<<std::endl;                                                       //
-std::cout << "Total Health: " << game.geTotaltHealth() << std::endl;                                  //
-std::cout << "Total Damage: " << game.getTotalDamage() << std::endl;                                  //
+      Game game;                                                                                      
+      game.PlayerAddRogue_dagger();                                                                  
+      std::cout <<"  Wizzard stats"<<std::endl;                                                       
+std::cout << "Total Health: " << game.geTotaltHealth() << std::endl;                                  
+std::cout << "Total Damage: " << game.getTotalDamage() << std::endl;                                  
 std::cout << "Total Defence: " << game.geTotaltDefence() << std::endl;       
 }
-
-
-
-
-

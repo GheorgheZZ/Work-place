@@ -13,9 +13,9 @@ class Enemy_goblin : public Enemy {
   std::string getType() { return "Goblin"; }
 
  private:
-  int health = 100;
-  int damage = 20;
-  int defence = 10;
+  int health = 69;
+  int damage = 10;
+  int defence = 0;
 };
 
 #endif
