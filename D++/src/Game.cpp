@@ -133,7 +133,7 @@ void Game::Final_Rogue_dagger()
 {
       Game game;                                                                                      
       game.PlayerAddRogue_dagger();                                                                  
-      std::cout <<"  Wizzard stats"<<std::endl;                                                       
+      std::cout <<"  Rogue stats"<<std::endl;                                                       
 std::cout << "Total Health: " << game.geTotaltHealth() << std::endl;                                  
 std::cout << "Total Damage: " << game.getTotalDamage() << std::endl;                                  
 std::cout << "Total Defence: " << game.geTotaltDefence() << std::endl;       
