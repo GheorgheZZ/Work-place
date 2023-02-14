@@ -14,7 +14,7 @@ class Enemy_orc : public Enemy {
 
  private:
   int health = 72;
-  int damage = 9;
+  int damage = 20;
   int defence = 0;
 };
 
