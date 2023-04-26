@@ -1,9 +1,6 @@
 #include <iostream>
 
 int main () {
-    const float PI = 3.14;
-    const int an_curent = 2023;
-
     int nume_var;
 
     nume_var = 10;
